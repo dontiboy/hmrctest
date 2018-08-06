@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="CalculatorProxyService" startOnLoad="true" trace="disable"
+  transports="https http" xmlns="http://ws.apache.org/ns/synapse">
+  <target>
+    <endpoint name="endpoint_urn_uuid_043323ec-e0b9-4af8-bcb2-e0245487e448">
+      <address trace="disable" uri="http://ws1.parasoft.com/glue/calculator"/>
+    </endpoint>
+    <inSequence>
+      <log description="Logger" level="custom">
+        <property name="MESSAGE" value="Calling the  Calculator Service"/>
+      </log>
+    </inSequence>
+    <outSequence>
+      <send/>
+    </outSequence>
+    <faultSequence/>
+  </target>
+</proxy>

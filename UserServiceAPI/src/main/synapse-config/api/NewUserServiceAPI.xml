@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/newuserservice" name="NewUserServiceAPI" xmlns="http://ws.apache.org/ns/synapse">
+  <resource methods="GET" protocol="http">
+    <inSequence>
+      <log level="custom">
+        <property name="Entry" value="Calling Endpoint"/>
+      </log>
+      <send>
+        <endpoint>
+          <http method="get" trace="disable" uri-template="http://localhost:8080/userservice/list"/>
+        </endpoint>
+      </send>
+    </inSequence>
+    <outSequence>
+      <log>
+        <property name="Response" value="Returning Result"/>
+      </log>
+    </outSequence>
+    <faultSequence/>
+  </resource>
+</api>
